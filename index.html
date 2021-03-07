@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel='stylesheet' href='style.css'>
+    <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        html{
+            height: 100vh;
+            position: relative;
+        }
+        *{
+            margin: 0%;
+            padding: 0%;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
+        }
+        .container
+        {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        h1{
+            font-family: 'RocknRoll One', sans-serif;
+            text-align: center;
+            text-shadow: 0px 2px 2px gray; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Your Name & See the Avatar</h1><br/><br/>
+        <img src="images.png" id="imagechange" class="img-thumbnail" width='250' height='250' alt="Failed To Load"><br/><br/>
+        <div class="col-lg-4">
+            <input class="form-control" type="text" placeholder="Enter Your Name..." required/>
+        </div><br/><br/>
+        <button type="button" class="btn btn-lg btn-warning" style="background: tomato; color: white; font-weight: bold;">Submit</button>        
+    </div><br/><br/>
+    <script>
+        $(document).ready(function(){
+            $('button').click(function(){
+                const name=$('input').val();
+                if(name=='')
+                    alert("Enter Your Name...");
+                else
+                    $('img').attr('src',`https://joeschmoe.io/api/v1/${name}`);
+            });
+        });
+    </script>
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>
+</html>
